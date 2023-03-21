@@ -5,3 +5,5 @@ const ProductsPage = () => {
         <h1>Contact</h1>
     </Layout>
 }
+
+export default ProductsPage
