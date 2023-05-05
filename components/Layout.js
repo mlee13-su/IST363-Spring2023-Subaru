@@ -1,5 +1,5 @@
 // core
-import { Fragment } from "react"
+import { Fragment } from 'react'
 
 // custom components
 import Footer from './Footer';
@@ -12,6 +12,6 @@ const Layout = ({children}) => {
             {children}
         </main>
         <Footer />
-    </Fragment>
+    </Fragment>   
 }
 export default Layout

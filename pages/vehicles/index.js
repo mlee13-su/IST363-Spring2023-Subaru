@@ -1,12 +1,13 @@
+import { useState } from 'react';
+
 import { getAllVehicles } from '../../lib/api';
 
 import Container from '../../components/Container';
 import Grid from '../../components/Grid';
 import Heading from '../../components/Heading';
-import Tabs from '../../components/Tabs';
 import Layout from '../../components/Layout';
 import Link from 'next/link';
-import { useState } from 'react';
+import Tabs from '../../components/Tabs';
 
 import { filterAllVehicleTypes } from '../../lib/utilities';
 
@@ -21,17 +22,29 @@ export async function getStaticProps() {
 
 const VehiclesPage = ({vehiclesData}) => {
     const [activeVehicleType, setActiveVehicleType] = useState("all");
-    const vehicleTypes = filterAllVehicleTypes(vehiclesData);
+    const vehicleTypes = ["all", ...filterAllVehicleTypes(vehiclesData)];
+
+    const filteredVehicles = vehiclesData.filter((vehicle) => {
+        const { vehicleTypes } = vehicle.node.vehicleInformation;
+        return activeVehicleType === "all" || vehicleTypes.includes(activeVehicleType)
+    });
+
     return (
         <Layout>
           <Container>
-            <Heading level={1} textAlign="center">Vehicles</Heading>
-            <Tabs
-              itmes={vehicleTypes}
-              actiItem={activeVehicleType}
-              changeHandler={setActiveVehicleType}
+            <Heading 
+              level={1} 
+              textAlign="center"
+            >Vehicles</Heading>
+            <Tabs 
+              items={vehicleTypes} 
+              activeItem={activeVehicleType}
+              changeHandler={setActiveVehicleType}  
             />
-            <Grid />
+            <Grid 
+              activeItem={activeVehicleType}
+              items={filteredVehicles}
+            />
           </Container>
         </Layout>
     )

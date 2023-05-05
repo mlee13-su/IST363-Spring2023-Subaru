@@ -1,12 +1,12 @@
 import classnames from 'classnames/bind';
-import styles from './button.module.css';
+import styles from './button.module.scss';
 
 let cx = classnames.bind(styles);
 
 const Button = ({
-    clickHandler,
-    label="Default",
-    type="secondary"
+    clickHandler, 
+    label="Default", 
+    type="secondary" 
 }) => {
     let buttonClasses = cx({
         btn: true,

@@ -11,10 +11,9 @@ const NavDesktop = () => {
             {pages.map((page, index) => {
                 const { title, slug } = page;
                 return <li key={`navDesktop${index}`}>
-                    {
-                        slug ?
-                            <Link href={`/${slug}`}>{title}</Link>
-                        : title
+                    {slug ? 
+                        <Link href={`/${slug}`}>{title}</Link>
+                    : title
                     }
                 </li>
             })}

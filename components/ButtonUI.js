@@ -11,7 +11,7 @@ const ButtonUI = ({icon, clickHandler}) => {
         btnui: true,
         [`icon-${icon}`] : icon
     });
-    return <button
+    return <button 
         className={btnuiClasses}
         onClick={clickHandler}
     >

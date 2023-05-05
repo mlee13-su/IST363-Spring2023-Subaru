@@ -5,30 +5,30 @@ import ButtonUI from './ButtonUI';
 import Link from 'next/link';
 import Logo from './Logo';
 import NavDesktop from './NavDesktop';
-import NavOverlay from './NavOverlay.js';
+import NavOverlay from './NavOverlay';
 
 import styles from './header.module.scss';
 
-const Header = ({children}) => {
+const Header = () => {
     const [isMenuVisible, setMenuVisible] = useState(false);
     return <header className={styles.header}>
         <Link href="/">
             <Logo />
         </Link>
-        <ButtonUI
-            icon="menu"
+        <ButtonUI 
+            icon="menu" 
             clickHandler={() => {
                 setMenuVisible(true);
             }}
         />
         <NavDesktop />
-        {isMenuVisible &&
-            <NavOverlay
+        {isMenuVisible && 
+            <NavOverlay 
                 closeHandler={() => {
                     setMenuVisible(false);
-                }}
+                }} 
             />
         }
-    </header>
+    </header>   
 }
 export default Header
