@@ -53,7 +53,7 @@ const TrimPicker = ({ trimLevels }) => {
                 className={styles.trimpicker_background_wrapper}
             >
                 <Image 
-                    src={`/backgrounds/series-background-${parseInt(activeBackgroundIndex)+1}.jpg`}
+                    src={`/background/series-background-${parseInt(activeBackgroundIndex)+1}.jpg`}
                     alt={backgroundImages[activeBackgroundIndex].name}
                     width={1900}
                     height={656}
@@ -107,7 +107,7 @@ const TrimPicker = ({ trimLevels }) => {
 }
 
 
-/* const TrimPicker = ({ trimLevels }) => {
+/*const TrimPicker = ({ trimLevels }) => {
     // stateVariable, setterFunctionVariable
     const [activeIndex, setActiveIndex] = useState(0);
 
